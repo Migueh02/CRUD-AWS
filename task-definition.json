@@ -1,0 +1,81 @@
+{
+  "family": "crud-aws",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::891612551385:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::891612551385:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "crud-aws",
+      "image": "891612551385.dkr.ecr.us-east-1.amazonaws.com/crud-aws:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3001,
+          "hostPort": 3001,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "3001"
+        },
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "DB_HOST",
+          "value": "database-2.cknm0seoiv5t.us-east-1.rds.amazonaws.com"
+        },
+        {
+          "name": "DB_PORT",
+          "value": "3306"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "crud"
+        },
+        {
+          "name": "DB_USER",
+          "value": "admin"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "us-east-1"
+        },
+        {
+          "name": "S3_BUCKET_NAME",
+          "value": "crud-app22"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "DB_PASSWORD",
+          "valueFrom": "arn:aws:ssm:us-east-1:891612551385:parameter/crud-aws/DB_PASSWORD"
+        },
+        {
+          "name": "AWS_ACCESS_KEY_ID",
+          "valueFrom": "arn:aws:ssm:us-east-1:891612551385:parameter/crud-aws/AWS_ACCESS_KEY_ID"
+        },
+        {
+          "name": "AWS_SECRET_ACCESS_KEY",
+          "valueFrom": "arn:aws:ssm:us-east-1:891612551385:parameter/crud-aws/AWS_SECRET_ACCESS_KEY"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/crud-aws",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512"
+} 

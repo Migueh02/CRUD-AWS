@@ -1,0 +1,19 @@
+{
+  "cluster": "crud-cluster",
+  "serviceName": "crud-service",
+  "taskDefinition": "crud-aws:1",
+  "desiredCount": 1,
+  "launchType": "FARGATE",
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "subnets": [
+        "subnet-0f6173ede3e2e12ac",
+        "subnet-0636ed0ac40c6d0a0"
+      ],
+      "securityGroups": [
+        "sg-0476e09f31344cc86"
+      ],
+      "assignPublicIp": "ENABLED"
+    }
+  }
+} 

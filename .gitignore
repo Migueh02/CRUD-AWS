@@ -1,3 +1,45 @@
+# Dependencias
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Directorios de construcción
+/dist
+/build
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de registro
+logs/
+*.log
+
+# Archivos temporales
+tmp/
+temp/
+
+# Archivos de base de datos local
+*.sqlite
+*.db
+
+# Archivos de Docker
+.dockerignore
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
 # Logs
 logs
 *.log
@@ -39,7 +81,6 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
@@ -71,13 +112,6 @@ web_modules/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

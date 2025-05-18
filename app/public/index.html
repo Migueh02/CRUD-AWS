@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD AWS - Sistema de Gestión</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Sistema CRUD con AWS</h1>
+      <p>Gestión de registros con imágenes usando S3 y RDS</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="form-section">
+      <h2>Crear Nuevo Item</h2>
+      <form id="item-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="item-name">Nombre:</label>
+          <input type="text" id="item-name" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="item-description">Descripción:</label>
+          <textarea id="item-description" name="descripcion" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="item-image">Imagen:</label>
+          <input type="file" id="item-image" name="imagen" accept="image/*">
+          <div class="image-preview">
+            <img id="preview-image" src="" alt="Vista previa" style="display: none;">
+          </div>
+        </div>
+        <button type="submit" id="submit-btn" class="btn primary">Crear Item</button>
+      </form>
+    </section>
+
+    <section class="items-section">
+      <h2>Items Existentes</h2>
+      <div id="item-list" class="items-grid">
+        <!-- Aquí se cargarán dinámicamente los items -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Edición -->
+  <div id="modal-edit" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Editar Item</h2>
+      <form id="edit-form">
+        <input type="hidden" id="edit-id">
+        <div class="form-group">
+          <label for="edit-name">Nombre:</label>
+          <input type="text" id="edit-name" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-description">Descripción:</label>
+          <textarea id="edit-description" name="descripcion" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn primary">Actualizar</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 CRUD AWS - Proyecto de Demostración</p>
+    </div>
+  </footer>
+
+  <script src="../components/Todo.js"></script>
+</body>
+</html> 
