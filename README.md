@@ -131,7 +131,7 @@ npm run dev
 
 ## Autor
 
-Miguel - 2023
+Migueh - 2025
 
 ## Licencia
 
